@@ -18,13 +18,17 @@ const Header = ({ setMeals }) => {
   };
   return (
     <>
-      <Stack direction="horizontal" style={{ opacity: "0.8" }} className="pt-4">
+      <Stack direction="horizontal" className="pt-4">
         <h1 className="me-4">Recipe Book</h1>
         <Form.Control
           size="lg"
           type="search"
           placeholder="Search a recipe"
-          style={{ width: "60%" }}
+          style={{
+            width: "60%",
+            background: " rgba(255, 255, 255, 0.5)",
+            backdropFilter: "blur(5px)",
+          }}
           className="ms-4 rounded-pill"
           ref={searchedTextRef}
         />

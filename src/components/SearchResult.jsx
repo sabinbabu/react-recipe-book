@@ -13,7 +13,13 @@ const SearchResult = ({ meals }) => {
 
   return (
     <Container>
-      <Card style={{ width: "25rem" }}>
+      <Card
+        style={{
+          width: "25rem",
+          background: " rgba(255, 255, 255, 0.5)",
+          backdropFilter: "blur(5px)",
+        }}
+      >
         <Card.Header>Featured</Card.Header>
         <Card.Body>
           <Card.Title className="text-center">{data?.strMeal}</Card.Title>
