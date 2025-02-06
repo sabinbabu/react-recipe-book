@@ -5,11 +5,17 @@ import { Container, Row, Col } from "react-bootstrap";
 import Header from "./components/Header";
 import { useState } from "react";
 import SearchResult from "./components/SearchResult";
+import FavoriteRecipe from "./components/FavoriteRecipe";
 
 function App() {
   const [meals, setMeals] = useState([]);
+  const [savedRecipe, setSavedRecipe] = useState([]);
   console.log("APImeals", meals);
 
+  // Save recipe
+  const handleOnSaveBtn = (recipe) => {
+    setSavedRecipe((prevValue) => [...prevValue, recipe]);
+  };
   return (
     <>
       <div
@@ -25,9 +31,11 @@ function App() {
           <Header setMeals={setMeals} />
           <Row>
             <Col md={4}>
-              <SearchResult meals={meals} />
+              <SearchResult meals={meals} handleOnSaveBtn={handleOnSaveBtn} />
             </Col>
-            <Col md={8}>{/* Favorite recipe */}</Col>
+            <Col md={8}>
+              <FavoriteRecipe savedRecipe={savedRecipe} />
+            </Col>
           </Row>
         </Container>
       </div>

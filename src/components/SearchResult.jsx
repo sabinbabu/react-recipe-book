@@ -3,7 +3,7 @@ import { Container } from "react-bootstrap";
 
 import RecipeCard from "./RecipeCard";
 import { useEffect, useState } from "react";
-const SearchResult = ({ meals }) => {
+const SearchResult = ({ meals, handleOnSaveBtn }) => {
   const totalRecipe = meals.length;
   const [counter, setCounter] = useState(0);
 
@@ -14,14 +14,10 @@ const SearchResult = ({ meals }) => {
   }, [meals, counter]);
 
   const handleOnLeftBtn = () => {
-    if (counter < 1) {
-      setCounter(meals.length - 1);
-    } else setCounter(counter - 1);
+    counter < 1 ? setCounter(meals.length - 1) : setCounter(counter - 1);
   };
   const handleOnRightBtn = () => {
-    if (counter === meals.length - 1) {
-      setCounter(0);
-    } else setCounter(counter + 1);
+    counter === meals.length - 1 ? setCounter(0) : setCounter(counter + 1);
   };
 
   return (
@@ -32,6 +28,7 @@ const SearchResult = ({ meals }) => {
         totalRecipe={totalRecipe}
         handleOnLeftBtn={handleOnLeftBtn}
         handleOnRightBtn={handleOnRightBtn}
+        handleOnSaveBtn={handleOnSaveBtn}
       />
     </Container>
   );

@@ -8,6 +8,7 @@ const RecipeCard = ({
   handleOnRightBtn,
   recipeCounter,
   totalRecipe,
+  handleOnSaveBtn,
 }) => {
   return (
     <Card
@@ -61,7 +62,9 @@ const RecipeCard = ({
           direction="horizontal"
           className="d-flex justify-content-between"
         >
-          <Button variant="success">Save</Button>
+          <Button variant="success" onClick={() => handleOnSaveBtn(data)}>
+            Save
+          </Button>
           {data?.strYoutube && (
             <CardLink href={data?.strYoutube} target="_blank">
               YouTube
