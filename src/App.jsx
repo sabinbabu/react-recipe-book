@@ -16,6 +16,14 @@ function App() {
   const handleOnSaveBtn = (recipe) => {
     setSavedRecipe((prevValue) => [...prevValue, recipe]);
   };
+
+  // Delete recipe
+  const handleOnDeleteBtn = (recipeId) => {
+    const updatedRecipe = savedRecipe.filter(
+      (recipe) => recipe.idMeal !== recipeId
+    );
+    setSavedRecipe(updatedRecipe);
+  };
   return (
     <>
       <div
@@ -34,7 +42,10 @@ function App() {
               <SearchResult meals={meals} handleOnSaveBtn={handleOnSaveBtn} />
             </Col>
             <Col>
-              <FavoriteRecipe savedRecipe={savedRecipe} />
+              <FavoriteRecipe
+                savedRecipe={savedRecipe}
+                handleOnDeleteBtn={handleOnDeleteBtn}
+              />
             </Col>
           </Row>
         </Container>

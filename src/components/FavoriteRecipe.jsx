@@ -2,7 +2,7 @@ import { Container } from "react-bootstrap";
 import FavoriteCard from "./FavoriteCard";
 
 /* eslint-disable react/prop-types */
-const FavoriteRecipe = ({ savedRecipe }) => {
+const FavoriteRecipe = ({ savedRecipe, handleOnDeleteBtn }) => {
   console.log(savedRecipe);
 
   return (
@@ -15,7 +15,11 @@ const FavoriteRecipe = ({ savedRecipe }) => {
         }}
       >
         {savedRecipe.map((recipe) => (
-          <FavoriteCard key={recipe.idMeal} recipe={recipe} />
+          <FavoriteCard
+            key={recipe.idMeal}
+            recipe={recipe}
+            handleOnDeleteBtn={handleOnDeleteBtn}
+          />
         ))}
       </Container>
     </>

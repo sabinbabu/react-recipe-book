@@ -3,14 +3,14 @@ import { Card, Button } from "react-bootstrap";
 import { splitToParagraph } from "../utility/splitToParagraph";
 import { generateRandomId } from "../utility/generateRandomId";
 
-const FavoriteCard = ({ recipe }) => {
+const FavoriteCard = ({ recipe, handleOnDeleteBtn }) => {
   return (
     <Card
       className="mb-3 text-center "
       style={{
         height: "80vh",
         background: " rgba(255, 255, 255, 0.2)",
-        backdropFilter: "blur(6px)",
+        backdropFilter: "blur(3px)",
       }}
     >
       <Card.Header as="h5">{recipe.strMeal}</Card.Header>
@@ -31,7 +31,12 @@ const FavoriteCard = ({ recipe }) => {
             </Card.Text>
           ))}
         </div>
-        <Button variant="outline-danger">Delete</Button>
+        <Button
+          variant="outline-danger"
+          onClick={() => handleOnDeleteBtn(recipe.idMeal)}
+        >
+          Delete
+        </Button>
       </Card.Body>
     </Card>
   );
