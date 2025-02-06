@@ -12,8 +12,9 @@ const RecipeCard = ({
 }) => {
   return (
     <Card
+      className="overflow-hidden"
       style={{
-        width: "25rem",
+        width: "70%",
         background: " rgba(255, 255, 255, 0.2)",
         backdropFilter: "blur(6px)",
       }}
@@ -33,12 +34,12 @@ const RecipeCard = ({
           </Button>
         </Stack>
       </Card.Header>
-      <Card.Body>
-        <Card.Title className="text-center">{data?.strMeal}</Card.Title>
+      <Card.Body className="text-center">
+        <Card.Title>{data?.strMeal}</Card.Title>
         <Card.Img
           variant="top"
           src={data?.strMealThumb}
-          style={{ height: "10rem", backgroundSize: "cover" }}
+          style={{ height: "12rem", width: "20rem", backgroundSize: "cover" }}
         />
         <Stack
           direction="horizontal"
@@ -48,9 +49,9 @@ const RecipeCard = ({
           <Badge bg="success">{data?.strCategory}</Badge>
         </Stack>
         <Card.Title>Ingredients</Card.Title>
-        <div className="overflow-scroll" style={{ height: "20rem" }}>
+        <div className="overflow-scroll" style={{ height: "18rem" }}>
           {getQuantityAndIng(data).map((item) => (
-            <li key={item.id} className="p-2">
+            <li key={item.id} className="p-2 text-start">
               {item.ingredient.charAt(0).toUpperCase() +
                 item.ingredient.slice(1)}
             </li>

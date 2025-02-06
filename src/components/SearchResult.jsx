@@ -21,17 +21,19 @@ const SearchResult = ({ meals, handleOnSaveBtn }) => {
   };
 
   return (
-    <Container>
-      <h2>Recipe</h2>
-      <RecipeCard
-        data={data}
-        recipeCounter={counter + 1}
-        totalRecipe={totalRecipe}
-        handleOnLeftBtn={handleOnLeftBtn}
-        handleOnRightBtn={handleOnRightBtn}
-        handleOnSaveBtn={handleOnSaveBtn}
-      />
-    </Container>
+    <>
+      <h2 className="text-start">Recipe</h2>
+      <Container className="d-flex flex-column align-items-center">
+        <RecipeCard
+          data={data}
+          recipeCounter={counter + 1}
+          totalRecipe={totalRecipe}
+          handleOnLeftBtn={handleOnLeftBtn}
+          handleOnRightBtn={handleOnRightBtn}
+          handleOnSaveBtn={handleOnSaveBtn}
+        />
+      </Container>
+    </>
   );
 };
 

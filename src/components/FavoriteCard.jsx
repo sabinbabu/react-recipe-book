@@ -6,7 +6,7 @@ import { generateRandomId } from "../utility/generateRandomId";
 const FavoriteCard = ({ recipe }) => {
   return (
     <Card
-      className="mb-3 text-center"
+      className="mb-3 text-center "
       style={{
         height: "80vh",
         background: " rgba(255, 255, 255, 0.2)",

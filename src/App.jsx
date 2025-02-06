@@ -22,7 +22,7 @@ function App() {
         style={{
           backgroundImage:
             'url("https://img.freepik.com/free-photo/food-background-with-ingredients-pasta_1220-3108.jpg")',
-          height: "100vh",
+          height: "100%",
           backgroundRepeat: "no-repeat",
           backgroundSize: "cover",
         }}
@@ -30,10 +30,10 @@ function App() {
         <Container fluid>
           <Header setMeals={setMeals} />
           <Row>
-            <Col md={4}>
+            <Col>
               <SearchResult meals={meals} handleOnSaveBtn={handleOnSaveBtn} />
             </Col>
-            <Col md={8}>
+            <Col>
               <FavoriteRecipe savedRecipe={savedRecipe} />
             </Col>
           </Row>
