@@ -2,7 +2,8 @@ import { useRef } from "react";
 import { Button, Form, Stack } from "react-bootstrap";
 import axios from "axios";
 
-const Header = () => {
+// eslint-disable-next-line react/prop-types
+const Header = ({ setMeals }) => {
   const searchedTextRef = useRef(null);
   const API_URL = "https://www.themealdb.com/api/json/v1/1/search.php?s=";
 
@@ -10,7 +11,7 @@ const Header = () => {
   const handleOnSearchBtn = async () => {
     try {
       const response = await axios.get(API_URL + searchedTextRef.current.value);
-      console.log(response.data.meals);
+      setMeals(response.data.meals);
     } catch (error) {
       console.log(error);
     }
