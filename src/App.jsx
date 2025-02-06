@@ -1,9 +1,10 @@
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "material-icons/iconfont/material-icons.css";
+import axios from "axios";
 import { Container, Row, Col, Alert } from "react-bootstrap";
 import Header from "./components/Header";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import SearchResult from "./components/SearchResult";
 import FavoriteRecipe from "./components/FavoriteRecipe";
 
@@ -11,6 +12,7 @@ function App() {
   const [meals, setMeals] = useState([]);
   const storedRecipes = JSON.parse(localStorage.getItem("savedRecipe")) || [];
   const [savedRecipe, setSavedRecipe] = useState(storedRecipes);
+  const searchedTextRef = useRef(null);
   console.log("APImeals", meals);
 
   useEffect(() => {
@@ -37,6 +39,28 @@ function App() {
     return savedRecipe.some((recipe) => recipe.idMeal === recipeID);
   };
 
+  // Handle when fav recipe is searched
+  const handleOnSearchSavedRecipe = (recipeName) => {
+    getAPIData(recipeName);
+  };
+
+  //   Search for recipe
+  const handleOnSearchBtn = () => {
+    getAPIData();
+  };
+
+  const getAPIData = async (recipeName) => {
+    try {
+      const query = searchedTextRef.current.value || recipeName;
+      const API_URL = "https://www.themealdb.com/api/json/v1/1/search.php?s=";
+      const response = await axios.get(API_URL + query);
+      setMeals(response.data.meals);
+      searchedTextRef.current.value = "";
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <>
       <div
@@ -49,7 +73,10 @@ function App() {
         }}
       >
         <Container fluid style={{ height: "100vh" }}>
-          <Header setMeals={setMeals} />
+          <Header
+            searchedTextRef={searchedTextRef}
+            handleOnSearchBtn={handleOnSearchBtn}
+          />
           <Row>
             <Col>
               {meals && meals.length ? (
@@ -74,6 +101,7 @@ function App() {
               <FavoriteRecipe
                 savedRecipe={savedRecipe}
                 handleOnDeleteBtn={handleOnDeleteBtn}
+                handleOnSearchSavedRecipe={handleOnSearchSavedRecipe}
               />
             </Col>
           </Row>

@@ -3,7 +3,11 @@ import { Card, Button } from "react-bootstrap";
 import { splitToParagraph } from "../utility/splitToParagraph";
 import { generateRandomId } from "../utility/generateRandomId";
 
-const FavoriteCard = ({ recipe, handleOnDeleteBtn }) => {
+const FavoriteCard = ({
+  recipe,
+  handleOnDeleteBtn,
+  handleOnSearchSavedRecipe,
+}) => {
   return (
     <Card
       className="mb-3 text-center "
@@ -13,12 +17,20 @@ const FavoriteCard = ({ recipe, handleOnDeleteBtn }) => {
         backdropFilter: "blur(3px)",
       }}
     >
-      <Card.Header as="h5">{recipe.strMeal}</Card.Header>
+      <Card.Header className="d-flex align-items-center">
+        <Button
+          variant="transparent"
+          onClick={() => handleOnSearchSavedRecipe(recipe.strMeal)}
+        >
+          <span className="material-icons">arrow_circle_left</span>
+        </Button>
+        <Card.Title as="h5">{recipe.strMeal}</Card.Title>
+      </Card.Header>
       <Card.Body>
         <Card.Img
           variant="top"
           src={recipe.strMealThumb}
-          style={{ height: "15rem", width: "25rem" }}
+          style={{ height: "12rem", width: "25rem" }}
         />
         <div className="overflow-scroll mt-4" style={{ height: "20rem" }}>
           {splitToParagraph(recipe.strInstructions).map((item) => (

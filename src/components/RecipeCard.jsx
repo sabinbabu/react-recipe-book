@@ -12,7 +12,7 @@ const RecipeCard = ({
   savedRecipe,
 }) => {
   const isSaveBtnActive = () =>
-    savedRecipe.some((favRecipe) => favRecipe.idMeal === data.idMeal);
+    savedRecipe.some((favRecipe) => favRecipe.idMeal === data?.idMeal);
   return (
     <Card
       className="overflow-hidden"

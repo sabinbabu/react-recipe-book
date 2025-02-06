@@ -2,7 +2,11 @@ import { Container, Alert } from "react-bootstrap";
 import FavoriteCard from "./FavoriteCard";
 
 /* eslint-disable react/prop-types */
-const FavoriteRecipe = ({ savedRecipe, handleOnDeleteBtn }) => {
+const FavoriteRecipe = ({
+  savedRecipe,
+  handleOnDeleteBtn,
+  handleOnSearchSavedRecipe,
+}) => {
   console.log(savedRecipe);
 
   return (
@@ -21,6 +25,7 @@ const FavoriteRecipe = ({ savedRecipe, handleOnDeleteBtn }) => {
               key={recipe.idMeal}
               recipe={recipe}
               handleOnDeleteBtn={handleOnDeleteBtn}
+              handleOnSearchSavedRecipe={handleOnSearchSavedRecipe}
             />
           ))}
         </Container>
