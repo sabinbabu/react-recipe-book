@@ -32,7 +32,7 @@ const Header = ({ setMeals }) => {
         <Form.Control
           size="lg"
           type="search"
-          placeholder="Search a recipe"
+          placeholder="Search a recipe or ingredient"
           style={{
             width: "60%",
             background: " rgba(255, 255, 255, 0.5)",
