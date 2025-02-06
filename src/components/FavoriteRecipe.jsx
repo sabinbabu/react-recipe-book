@@ -9,7 +9,7 @@ const FavoriteRecipe = ({ savedRecipe, handleOnDeleteBtn }) => {
     <>
       <h2>Favorite Recipe</h2>
 
-      {savedRecipe.length ? (
+      {savedRecipe?.length ? (
         <Container
           className="overflow-auto"
           style={{

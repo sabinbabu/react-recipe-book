@@ -3,14 +3,19 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "material-icons/iconfont/material-icons.css";
 import { Container, Row, Col, Alert } from "react-bootstrap";
 import Header from "./components/Header";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import SearchResult from "./components/SearchResult";
 import FavoriteRecipe from "./components/FavoriteRecipe";
 
 function App() {
   const [meals, setMeals] = useState([]);
-  const [savedRecipe, setSavedRecipe] = useState([]);
+  const storedRecipes = JSON.parse(localStorage.getItem("savedRecipe")) || [];
+  const [savedRecipe, setSavedRecipe] = useState(storedRecipes);
   console.log("APImeals", meals);
+
+  useEffect(() => {
+    localStorage.setItem("savedRecipe", JSON.stringify(savedRecipe));
+  }, [savedRecipe]);
 
   // Save recipe
   const handleOnSaveBtn = (recipe) => {
