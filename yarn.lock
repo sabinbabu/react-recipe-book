@@ -1801,6 +1801,11 @@ lru-cache@^5.1.1:
   dependencies:
     yallist "^3.0.2"
 
+material-icons@^1.13.13:
+  version "1.13.13"
+  resolved "https://registry.yarnpkg.com/material-icons/-/material-icons-1.13.13.tgz#25e0ec1022bd81d3b7c59c9421f36f41f5e4adab"
+  integrity sha512-jYh0VkYvsYfArOIB1LqmmoXiONBk5YaIf0f8b5pTNQdVDl4b7htoqXuQF7G03fqFQpwvv1FcMdQ1rrLWd9ftWg==
+
 math-intrinsics@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/math-intrinsics/-/math-intrinsics-1.1.0.tgz#a0dd74be81e2aa5c2f27e65ce283605ee4e2b7f9"
