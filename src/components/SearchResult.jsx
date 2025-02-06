@@ -22,6 +22,7 @@ const SearchResult = ({ meals, handleOnSaveBtn }) => {
 
   return (
     <Container>
+      <h2>Recipe</h2>
       <RecipeCard
         data={data}
         recipeCounter={counter + 1}

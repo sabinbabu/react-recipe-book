@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import { Card, Button, Stack, Badge, CardLink } from "react-bootstrap";
-import { getQuantityAndIng } from "../utility/getQuantityAndIng";
+import { getQuantityAndIng } from "../utility/getQuantityAndIng.js";
 
 const RecipeCard = ({
   data,
@@ -14,8 +14,8 @@ const RecipeCard = ({
     <Card
       style={{
         width: "25rem",
-        background: " rgba(255, 255, 255, 0.5)",
-        backdropFilter: "blur(5px)",
+        background: " rgba(255, 255, 255, 0.2)",
+        backdropFilter: "blur(6px)",
       }}
     >
       <Card.Header className="d-flex justify-content-between">
