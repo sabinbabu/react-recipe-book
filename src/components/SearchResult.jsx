@@ -6,12 +6,15 @@ import { useEffect, useState } from "react";
 const SearchResult = ({ meals, handleOnSaveBtn }) => {
   const totalRecipe = meals.length;
   const [counter, setCounter] = useState(0);
-
   const [data, setData] = useState({});
 
   useEffect(() => {
     setData(meals[counter]);
   }, [meals, counter]);
+
+  useEffect(() => {
+    setCounter(0);
+  }, [meals]);
 
   const handleOnLeftBtn = () => {
     counter < 1 ? setCounter(meals.length - 1) : setCounter(counter - 1);

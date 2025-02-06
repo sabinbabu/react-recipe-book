@@ -1,7 +1,7 @@
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "material-icons/iconfont/material-icons.css";
-import { Container, Row, Col } from "react-bootstrap";
+import { Container, Row, Col, Alert } from "react-bootstrap";
 import Header from "./components/Header";
 import { useState } from "react";
 import SearchResult from "./components/SearchResult";
@@ -35,11 +35,23 @@ function App() {
           backgroundSize: "cover",
         }}
       >
-        <Container fluid>
+        <Container fluid style={{ height: "100vh" }}>
           <Header setMeals={setMeals} />
           <Row>
             <Col>
-              <SearchResult meals={meals} handleOnSaveBtn={handleOnSaveBtn} />
+              {meals && meals.length ? (
+                <SearchResult meals={meals} handleOnSaveBtn={handleOnSaveBtn} />
+              ) : (
+                <Alert
+                  variant="info"
+                  style={{
+                    background: " rgba(255, 255, 255, 0.2)",
+                    backdropFilter: "blur(6px)",
+                  }}
+                >
+                  Please search for a recipe
+                </Alert>
+              )}
             </Col>
             <Col>
               <FavoriteRecipe

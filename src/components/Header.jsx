@@ -20,7 +20,15 @@ const Header = ({ setMeals }) => {
   return (
     <>
       <Stack direction="horizontal" className="pt-4">
-        <h1 className="me-4">Recipe Book</h1>
+        <h2
+          className="me-4 p-4 border rounded-pill"
+          style={{
+            background: " rgba(255, 255, 255, 0.2)",
+            backdropFilter: "blur(6px)",
+          }}
+        >
+          Recipe Book
+        </h2>
         <Form.Control
           size="lg"
           type="search"

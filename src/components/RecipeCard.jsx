@@ -49,7 +49,7 @@ const RecipeCard = ({
           <Badge bg="success">{data?.strCategory}</Badge>
         </Stack>
         <Card.Title>Ingredients</Card.Title>
-        <div className="overflow-scroll" style={{ height: "18rem" }}>
+        <div className="overflow-scroll" style={{ height: "15rem" }}>
           {getQuantityAndIng(data).map((item) => (
             <li key={item.id} className="p-2 text-start">
               {item.ingredient.charAt(0).toUpperCase() +
