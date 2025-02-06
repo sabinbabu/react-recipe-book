@@ -12,6 +12,7 @@ const Header = ({ setMeals }) => {
     try {
       const response = await axios.get(API_URL + searchedTextRef.current.value);
       setMeals(response.data.meals);
+      searchedTextRef.current.value = "";
     } catch (error) {
       console.log(error);
     }

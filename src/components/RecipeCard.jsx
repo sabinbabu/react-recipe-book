@@ -47,7 +47,7 @@ const RecipeCard = ({
           <Badge bg="success">{data?.strCategory}</Badge>
         </Stack>
         <Card.Title>Ingredients</Card.Title>
-        <div className="overflow-scroll" style={{ height: "22rem" }}>
+        <div className="overflow-scroll" style={{ height: "20rem" }}>
           {getQuantityAndIng(data).map((item) => (
             <li key={item.id} className="p-2">
               {item.ingredient.charAt(0).toUpperCase() +
@@ -62,7 +62,7 @@ const RecipeCard = ({
           className="d-flex justify-content-between"
         >
           <Button variant="success">Save</Button>
-          {data.strYoutube && (
+          {data?.strYoutube && (
             <CardLink href={data?.strYoutube} target="_blank">
               YouTube
             </CardLink>

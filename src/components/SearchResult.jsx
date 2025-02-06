@@ -13,7 +13,11 @@ const SearchResult = ({ meals }) => {
     setData(meals[counter]);
   }, [meals, counter]);
 
-  const handleOnLeftBtn = () => {};
+  const handleOnLeftBtn = () => {
+    if (counter < 1) {
+      setCounter(meals.length - 1);
+    } else setCounter(counter - 1);
+  };
   const handleOnRightBtn = () => {
     if (counter === meals.length - 1) {
       setCounter(0);
