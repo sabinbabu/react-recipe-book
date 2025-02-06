@@ -14,7 +14,9 @@ function App() {
 
   // Save recipe
   const handleOnSaveBtn = (recipe) => {
-    setSavedRecipe((prevValue) => [...prevValue, recipe]);
+    if (!isRecipeSaved(recipe.idMeal)) {
+      setSavedRecipe((prevValue) => [...prevValue, recipe]);
+    }
   };
 
   // Delete recipe
@@ -24,6 +26,12 @@ function App() {
     );
     setSavedRecipe(updatedRecipe);
   };
+
+  // Check if recipe is in saved recipe
+  const isRecipeSaved = (recipeID) => {
+    return savedRecipe.some((recipe) => recipe.idMeal === recipeID);
+  };
+
   return (
     <>
       <div

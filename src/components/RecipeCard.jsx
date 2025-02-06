@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 import { Card, Button, Stack, Badge, CardLink } from "react-bootstrap";
 import { getQuantityAndIng } from "../utility/getQuantityAndIng.js";
+import CardButton from "./CardButton.jsx";
 
 const RecipeCard = ({
   data,
@@ -63,9 +64,7 @@ const RecipeCard = ({
           direction="horizontal"
           className="d-flex justify-content-between"
         >
-          <Button variant="success" onClick={() => handleOnSaveBtn(data)}>
-            Save
-          </Button>
+          <CardButton data={data} handleOnSaveBtn={handleOnSaveBtn} />
           {data?.strYoutube && (
             <CardLink href={data?.strYoutube} target="_blank">
               YouTube
