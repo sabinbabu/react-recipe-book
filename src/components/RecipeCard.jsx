@@ -1,7 +1,6 @@
 /* eslint-disable react/prop-types */
 import { Card, Button, Stack, Badge, CardLink } from "react-bootstrap";
 import { getQuantityAndIng } from "../utility/getQuantityAndIng.js";
-import CardButton from "./CardButton.jsx";
 
 const RecipeCard = ({
   data,
@@ -10,7 +9,10 @@ const RecipeCard = ({
   recipeCounter,
   totalRecipe,
   handleOnSaveBtn,
+  savedRecipe,
 }) => {
+  const isSaveBtnActive = () =>
+    savedRecipe.some((favRecipe) => favRecipe.idMeal === data.idMeal);
   return (
     <Card
       className="overflow-hidden"
@@ -64,7 +66,14 @@ const RecipeCard = ({
           direction="horizontal"
           className="d-flex justify-content-between"
         >
-          <CardButton data={data} handleOnSaveBtn={handleOnSaveBtn} />
+          <Button
+            variant="success"
+            onClick={() => handleOnSaveBtn(data)}
+            disabled={isSaveBtnActive()}
+          >
+            Save
+          </Button>
+
           {data?.strYoutube && (
             <CardLink href={data?.strYoutube} target="_blank">
               YouTube

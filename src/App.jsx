@@ -15,7 +15,7 @@ function App() {
   // Save recipe
   const handleOnSaveBtn = (recipe) => {
     if (!isRecipeSaved(recipe.idMeal)) {
-      setSavedRecipe((prevValue) => [...prevValue, recipe]);
+      setSavedRecipe((prevValue) => [...prevValue, recipe].reverse());
     }
   };
 
@@ -48,7 +48,11 @@ function App() {
           <Row>
             <Col>
               {meals && meals.length ? (
-                <SearchResult meals={meals} handleOnSaveBtn={handleOnSaveBtn} />
+                <SearchResult
+                  meals={meals}
+                  handleOnSaveBtn={handleOnSaveBtn}
+                  savedRecipe={savedRecipe}
+                />
               ) : (
                 <Alert
                   variant="info"
