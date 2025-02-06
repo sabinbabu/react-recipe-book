@@ -8,7 +8,7 @@ import SearchResult from "./components/SearchResult";
 
 function App() {
   const [meals, setMeals] = useState([]);
-  console.log("meals", meals);
+  console.log("APImeals", meals);
 
   return (
     <>
