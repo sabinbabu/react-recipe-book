@@ -1,5 +1,3 @@
-import "./App.css";
-import "bootstrap/dist/css/bootstrap.min.css";
 import "material-icons/iconfont/material-icons.css";
 import axios from "axios";
 import { Container, Row, Col, Alert } from "react-bootstrap";
@@ -64,13 +62,14 @@ function App() {
   return (
     <>
       <div
-        style={{
-          backgroundImage:
-            'url("https://img.freepik.com/free-photo/food-background-with-ingredients-pasta_1220-3108.jpg")',
-          height: "100%",
-          backgroundRepeat: "no-repeat",
-          backgroundSize: "cover",
-        }}
+      // style={{
+      //   backgroundImage:
+      //     'url("https://img.freepik.com/free-photo/food-background-with-ingredients-pasta_1220-3108.jpg")',
+      //   height: "100vh",
+      //   backgroundRepeat: "no-repeat",
+      //   backgroundSize: "cover",
+      //   backgroundAttachment: "fixed",
+      // }}
       >
         <Container fluid style={{ height: "100vh" }}>
           <Header
