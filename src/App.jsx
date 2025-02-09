@@ -60,53 +60,40 @@ function App() {
   };
 
   return (
-    <>
-      <div
-      // style={{
-      //   backgroundImage:
-      //     'url("https://img.freepik.com/free-photo/food-background-with-ingredients-pasta_1220-3108.jpg")',
-      //   height: "100vh",
-      //   backgroundRepeat: "no-repeat",
-      //   backgroundSize: "cover",
-      //   backgroundAttachment: "fixed",
-      // }}
-      >
-        <Container fluid style={{ height: "100vh" }}>
-          <Header
-            searchedTextRef={searchedTextRef}
-            handleOnSearchBtn={handleOnSearchBtn}
+    <Container fluid style={{ height: "100vh" }}>
+      <Header
+        searchedTextRef={searchedTextRef}
+        handleOnSearchBtn={handleOnSearchBtn}
+      />
+      <Row>
+        <Col>
+          {meals && meals.length ? (
+            <SearchResult
+              meals={meals}
+              handleOnSaveBtn={handleOnSaveBtn}
+              savedRecipe={savedRecipe}
+            />
+          ) : (
+            <Alert
+              variant="info"
+              style={{
+                background: " rgba(255, 255, 255, 0.2)",
+                backdropFilter: "blur(6px)",
+              }}
+            >
+              Please search for a recipe
+            </Alert>
+          )}
+        </Col>
+        <Col>
+          <FavoriteRecipe
+            savedRecipe={savedRecipe}
+            handleOnDeleteBtn={handleOnDeleteBtn}
+            handleOnSearchSavedRecipe={handleOnSearchSavedRecipe}
           />
-          <Row>
-            <Col>
-              {meals && meals.length ? (
-                <SearchResult
-                  meals={meals}
-                  handleOnSaveBtn={handleOnSaveBtn}
-                  savedRecipe={savedRecipe}
-                />
-              ) : (
-                <Alert
-                  variant="info"
-                  style={{
-                    background: " rgba(255, 255, 255, 0.2)",
-                    backdropFilter: "blur(6px)",
-                  }}
-                >
-                  Please search for a recipe
-                </Alert>
-              )}
-            </Col>
-            <Col>
-              <FavoriteRecipe
-                savedRecipe={savedRecipe}
-                handleOnDeleteBtn={handleOnDeleteBtn}
-                handleOnSearchSavedRecipe={handleOnSearchSavedRecipe}
-              />
-            </Col>
-          </Row>
-        </Container>
-      </div>
-    </>
+        </Col>
+      </Row>
+    </Container>
   );
 }
 
